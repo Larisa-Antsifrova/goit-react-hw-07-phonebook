@@ -1,4 +1,3 @@
-# React Homework. Module 6
+# React Homework. Module 7
 
-- Branch main - Redux Toolkit Phonebook App.
-- Branch redux-phonebook - Pure Redux Phonebook App.
+Phonebook App. JSON-server. Async Redux. Selectors. Memoization.
