@@ -4,12 +4,15 @@ import {
   addContactRequest,
   addContactSuccess,
   addContactError,
+  deleteContactRequest,
+  deleteContactSuccess,
+  deleteContactError,
+  updateFilter,
 } from './contacts-actions';
-import { deleteContact, updateFilter } from './contacts-actions';
 
 const items = createReducer([], {
   [addContactSuccess]: (state, { payload }) => [payload, ...state],
-  [deleteContact]: (state, { payload }) =>
+  [deleteContactSuccess]: (state, { payload }) =>
     state.filter(contact => contact.id !== payload),
 });
 
@@ -21,6 +24,9 @@ const loading = createReducer(false, {
   [addContactRequest]: () => true,
   [addContactSuccess]: () => false,
   [addContactError]: () => false,
+  [deleteContactRequest]: () => true,
+  [deleteContactSuccess]: () => false,
+  [deleteContactError]: () => false,
 });
 
 export const phonebookReducer = combineReducers({

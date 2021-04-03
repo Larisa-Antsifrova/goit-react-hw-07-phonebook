@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
-import { deleteContact } from '../../redux/contacts-actions';
+import { deleteContact } from '../../redux/contacts-operations';
 
 import styles from './ContactList.module.css';
 
@@ -37,7 +37,7 @@ const ContactList = ({ filtered, onDeleteContact }) => {
 ContactList.propTypes = {
   filtered: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string.isRequired,
+      id: PropTypes.number.isRequired,
       name: PropTypes.string.isRequired,
       number: PropTypes.string.isRequired,
     }).isRequired,
