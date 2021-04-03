@@ -4,7 +4,7 @@ import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 // import storage from 'redux-persist/lib/storage';
 // Redux Persist fix
 import {
-  persistStore,
+  // persistStore,
   // persistReducer,
   FLUSH,
   REHYDRATE,
