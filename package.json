@@ -1,5 +1,5 @@
 {
-  "name": "goit-react-hw-06-phonebook",
+  "name": "goit-react-hw-07-phonebook",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -24,7 +24,7 @@
     "uuid": "^8.3.2",
     "web-vitals": "^1.1.0"
   },
-  "homepage": "https://Larisa-Antsifrova.github.io/goit-react-hw-06-phonebook",
+  "homepage": "https://Larisa-Antsifrova.github.io/goit-react-hw-07-phonebook",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
