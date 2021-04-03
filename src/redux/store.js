@@ -16,7 +16,7 @@ import {
 // Imports of middleware
 import logger from 'redux-logger';
 // Imports of reducers
-import { phonebookReducer } from './phonebook-reducers';
+import { phonebookReducer } from './contacts-reducers';
 
 const middleware = [
   ...getDefaultMiddleware({

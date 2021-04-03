@@ -1,3 +1,44 @@
 {
-  "contacts": [{ "id": 0, "name": "Katia", "number": "0633896678" }]
+  "contacts": [
+    {
+      "id": 0,
+      "name": "Katia",
+      "number": "0633896678"
+    },
+    {
+      "id": "e54fdf34-d340-4a77-a9b1-aac787f36195",
+      "name": "Larisa Antsifrova",
+      "number": "0633896690"
+    },
+    {
+      "name": "Rosie Simpson",
+      "number": "0631234690",
+      "id": 1
+    },
+    {
+      "name": "Larisa Antsifrova",
+      "number": "0633896690",
+      "id": 2
+    },
+    {
+      "name": "Larisa Antsifrova",
+      "number": "0633896690",
+      "id": 3
+    },
+    {
+      "name": "Larisa Antsifrova",
+      "number": "0633896690",
+      "id": 4
+    },
+    {
+      "name": "Larisa Antsifrova",
+      "number": "0633896690",
+      "id": 5
+    },
+    {
+      "name": "Larisa Antsifrova",
+      "number": "0633896690",
+      "id": 6
+    }
+  ]
 }

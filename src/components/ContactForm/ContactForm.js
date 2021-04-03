@@ -1,11 +1,11 @@
 // Imports from React
 import React, { Component } from 'react';
 // Helpers imports
-import { v4 as uuidv4 } from 'uuid';
+// import { v4 as uuidv4 } from 'uuid';
 import PropTypes from 'prop-types';
 // Imports from Redux
 import { connect } from 'react-redux';
-import { addContact } from '../../redux/phonebook-actions';
+import { addContact } from '../../redux/contacts-operations';
 // Styles imports
 import styles from './ContactForm.module.css';
 
@@ -26,7 +26,7 @@ class ContactForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    const id = uuidv4();
+    // const id = uuidv4();
     const { name, number } = this.state;
 
     if (!name) {
@@ -42,7 +42,7 @@ class ContactForm extends Component {
       return;
     }
 
-    const newContact = { id, name, number };
+    const newContact = { name, number };
 
     this.props.submitHandler(newContact);
 

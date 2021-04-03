@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
-import { updateFilter } from '../../redux/phonebook-actions';
+import { updateFilter } from '../../redux/contacts-actions';
 
 import styles from './Filter.module.css';
 
