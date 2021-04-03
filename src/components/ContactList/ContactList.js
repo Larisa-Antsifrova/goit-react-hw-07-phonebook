@@ -3,19 +3,15 @@ import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 import { fetchContacts, deleteContact } from '../../redux/contacts-operations';
-
+import {
+  getFilterValue,
+  getItemsValue,
+  getLoading,
+} from '../../redux/contacts-selectors';
 import Loader from 'react-loader-spinner';
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 
 import styles from './ContactList.module.css';
-// class  extends Component {
-//   state = {  }
-//   render() {
-//     return (  );
-//   }
-// }
-
-// export default ;
 
 class ContactList extends Component {
   state = {};
@@ -78,14 +74,18 @@ class ContactList extends Component {
 // };
 
 const mapStateToProps = state => {
-  const filtered = state.contacts.items.filter(
+  const filter = getFilterValue(state);
+  const items = getItemsValue(state);
+  const isLoading = getLoading(state);
+
+  const filtered = items.filter(
     ({ name, number }) =>
-      name.toLowerCase().includes(state.contacts.filter.toLocaleLowerCase()) ||
-      number.includes(state.contacts.filter),
+      name.toLowerCase().includes(filter.toLocaleLowerCase()) ||
+      number.includes(filter),
   );
   return {
     filtered,
-    isLoading: state.contacts.loading,
+    isLoading,
   };
 };
 

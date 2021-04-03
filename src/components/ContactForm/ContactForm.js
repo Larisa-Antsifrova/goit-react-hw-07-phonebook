@@ -1,11 +1,11 @@
 // Imports from React
 import React, { Component } from 'react';
 // Helpers imports
-// import { v4 as uuidv4 } from 'uuid';
 import PropTypes from 'prop-types';
 // Imports from Redux
 import { connect } from 'react-redux';
 import { addContact } from '../../redux/contacts-operations';
+import { getItemsValue } from '../../redux/contacts-selectors';
 // Styles imports
 import styles from './ContactForm.module.css';
 
@@ -26,14 +26,13 @@ class ContactForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    // const id = uuidv4();
     const { name, number } = this.state;
 
     if (!name) {
       return;
     }
 
-    const existingContact = this.props.state.contacts.items.find(
+    const existingContact = this.props.items.find(
       contact => contact.name === name,
     );
 
@@ -85,7 +84,7 @@ class ContactForm extends Component {
 }
 
 const mapStateToProps = state => ({
-  state,
+  items: getItemsValue(state),
 });
 
 const mapDispatchToProps = dispatch => ({
