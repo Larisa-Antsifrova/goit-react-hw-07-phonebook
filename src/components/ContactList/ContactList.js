@@ -1,20 +1,27 @@
+// Imports from React
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
-
+// Imports from Redux
 import { connect } from 'react-redux';
 import { fetchContacts, deleteContact } from '../../redux/contacts-operations';
-import {
-  getFilterValue,
-  getItemsValue,
-  getLoading,
-} from '../../redux/contacts-selectors';
+import { getFilteredItems, getLoading } from '../../redux/contacts-selectors';
+// Imports of helpers
+import PropTypes from 'prop-types';
 import Loader from 'react-loader-spinner';
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
-
+// Styles imports
 import styles from './ContactList.module.css';
 
 class ContactList extends Component {
-  state = {};
+  static propTypes = {
+    filtered: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+        number: PropTypes.string.isRequired,
+      }).isRequired,
+    ).isRequired,
+    onDeleteContact: PropTypes.func.isRequired,
+  };
 
   componentDidMount() {
     this.props.fetchContacts();
@@ -62,32 +69,10 @@ class ContactList extends Component {
   }
 }
 
-// ContactList.propTypes = {
-//   filtered: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       id: PropTypes.number.isRequired,
-//       name: PropTypes.string.isRequired,
-//       number: PropTypes.string.isRequired,
-//     }).isRequired,
-//   ).isRequired,
-//   onDeleteContact: PropTypes.func.isRequired,
-// };
-
-const mapStateToProps = state => {
-  const filter = getFilterValue(state);
-  const items = getItemsValue(state);
-  const isLoading = getLoading(state);
-
-  const filtered = items.filter(
-    ({ name, number }) =>
-      name.toLowerCase().includes(filter.toLocaleLowerCase()) ||
-      number.includes(filter),
-  );
-  return {
-    filtered,
-    isLoading,
-  };
-};
+const mapStateToProps = state => ({
+  filtered: getFilteredItems(state),
+  isLoading: getLoading(state),
+});
 
 const mapDispatchToProps = dispatch => ({
   onDeleteContact: contactId => dispatch(deleteContact(contactId)),
