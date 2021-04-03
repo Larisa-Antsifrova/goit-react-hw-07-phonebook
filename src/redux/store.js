@@ -1,11 +1,11 @@
 // Imports from Redux Toolkit
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 // Imports from Redux Persist
-import storage from 'redux-persist/lib/storage';
+// import storage from 'redux-persist/lib/storage';
 // Redux Persist fix
 import {
   persistStore,
-  persistReducer,
+  // persistReducer,
   FLUSH,
   REHYDRATE,
   PAUSE,
@@ -27,20 +27,29 @@ const middleware = [
   logger,
 ];
 
-const phonebookPersistConfig = {
-  key: 'phonebook',
-  storage,
-  blacklist: ['filter'],
-};
+// const phonebookPersistConfig = {
+//   key: 'phonebook',
+//   storage,
+//   blacklist: ['filter'],
+// };
+
+// const store = configureStore({
+//   reducer: {
+//     contacts: persistReducer(phonebookPersistConfig, phonebookReducer),
+//   },
+//   middleware,
+//   devTools: process.env.NODE_ENV !== 'production',
+// });
 
 const store = configureStore({
   reducer: {
-    contacts: persistReducer(phonebookPersistConfig, phonebookReducer),
+    contacts: phonebookReducer,
   },
   middleware,
   devTools: process.env.NODE_ENV !== 'production',
 });
 
-const persistor = persistStore(store);
+// const persistor = persistStore(store);
 
-export { store, persistor };
+export { store };
+// export { store, persistor };
