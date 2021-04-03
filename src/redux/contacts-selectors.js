@@ -1,10 +1,10 @@
 const getFilterValue = state => state.contacts.filter;
-const getItemsValue = state => state.contacts.items;
+const getAllContacts = state => state.contacts.items;
 const getLoading = state => state.contacts.loading;
 
 const getFilteredItems = state => {
   const filter = getFilterValue(state);
-  const items = getItemsValue(state);
+  const items = getAllContacts(state);
 
   return items.filter(
     ({ name, number }) =>
@@ -13,4 +13,4 @@ const getFilteredItems = state => {
   );
 };
 
-export { getFilterValue, getItemsValue, getLoading, getFilteredItems };
+export { getFilterValue, getAllContacts, getLoading, getFilteredItems };
