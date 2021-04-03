@@ -44,17 +44,17 @@ class ContactList extends Component {
 
         {!_.isEmpty(filtered) && (
           <ul className={styles.contacts}>
-            {filtered.map(contact => (
-              <li key={contact.id} className={styles.item}>
+            {filtered.map(({ id, name, number }) => (
+              <li key={id} className={styles.item}>
                 <div>
-                  <p>{contact.name}:</p>
-                  <p>{contact.number}</p>
+                  <p>{name}:</p>
+                  <p>{number}</p>
                 </div>
 
                 <button
                   className={styles.btn}
                   onClick={() => {
-                    onDeleteContact(contact.id);
+                    onDeleteContact(id);
                   }}
                 >
                   Delete

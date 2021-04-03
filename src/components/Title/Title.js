@@ -1,6 +1,8 @@
+// Imports from React
 import React from 'react';
+// Imports of helpers
 import PropTypes from 'prop-types';
-
+// Styles imports
 import styles from './Title.module.css';
 
 const Title = ({ title }) => {

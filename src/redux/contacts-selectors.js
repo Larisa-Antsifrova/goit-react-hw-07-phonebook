@@ -1,6 +1,6 @@
 const getFilterValue = state => state.contacts.filter;
+
 const getAllContacts = state => state.contacts.items;
-const getLoading = state => state.contacts.loading;
 
 const getFilteredItems = state => {
   const filter = getFilterValue(state);
@@ -13,4 +13,6 @@ const getFilteredItems = state => {
   );
 };
 
-export { getFilterValue, getAllContacts, getLoading, getFilteredItems };
+const getLoading = state => state.contacts.loading;
+
+export { getFilterValue, getAllContacts, getFilteredItems, getLoading };
