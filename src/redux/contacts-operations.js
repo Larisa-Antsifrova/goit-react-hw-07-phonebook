@@ -38,10 +38,13 @@ const addContact = contact => async dispatch => {
 
 const deleteContact = contactId => async dispatch => {
   dispatch(deleteContactRequest());
-  axios
-    .delete(`/contacts/${contactId}`)
-    .then(() => dispatch(deleteContactSuccess(contactId)))
-    .catch(error => dispatch(deleteContactError(error)));
+
+  try {
+    await axios.delete(`/contacts/${contactId}`);
+    dispatch(deleteContactSuccess(contactId));
+  } catch (error) {
+    dispatch(deleteContactError(error));
+  }
 };
 
 export { fetchContacts, addContact, deleteContact };
