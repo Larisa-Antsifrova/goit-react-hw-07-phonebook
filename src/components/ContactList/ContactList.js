@@ -4,6 +4,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchContacts, deleteContact } from '../../redux/contacts-operations';
 
+import Loader from 'react-loader-spinner';
+import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
+
 import styles from './ContactList.module.css';
 // class  extends Component {
 //   state = {  }
@@ -26,7 +29,15 @@ class ContactList extends Component {
 
     return (
       <>
-        {isLoading && <p>Loading...</p>}
+        {isLoading && (
+          <Loader
+            type="TailSpin"
+            color="#80cbc4"
+            height={50}
+            width={50}
+            className={styles.loader}
+          />
+        )}
         <ul className={styles.contacts}>
           {filtered.length ? (
             filtered.map(contact => (
