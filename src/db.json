@@ -1,49 +1,24 @@
 {
   "contacts": [
     {
-      "id": 0,
-      "name": "Katia",
-      "number": "0633896678"
-    },
-    {
-      "id": "e54fdf34-d340-4a77-a9b1-aac787f36195",
-      "name": "Larisa Antsifrova",
-      "number": "0633896690"
-    },
-    {
-      "name": "Rosie Simpson",
-      "number": "0631234690",
+      "name": "Larisa Vladimirovna",
+      "number": "0633896690",
       "id": 1
     },
     {
-      "name": "Larisa Antsifrova",
-      "number": "0633896690",
+      "name": "Makar Olegovich",
+      "number": "0631234690",
       "id": 2
     },
     {
-      "name": "Larisa Antsifrova",
-      "number": "0633896690",
+      "name": "Katerina Vladimirovna",
+      "number": "0732165379",
       "id": 3
-    },
-    {
-      "name": "Larisa Antsifrova",
-      "number": "0633896690",
-      "id": 4
-    },
-    {
-      "name": "Larisa Antsifrova",
-      "number": "0633896690",
-      "id": 5
-    },
-    {
-      "name": "Larisa Antsifrova",
-      "number": "0633896690",
-      "id": 6
     },
     {
       "name": "Rosie Simpson",
       "number": "0631234690",
-      "id": 7
+      "id": 4
     }
   ]
 }
