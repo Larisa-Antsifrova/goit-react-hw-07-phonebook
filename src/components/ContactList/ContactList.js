@@ -6,6 +6,7 @@ import { fetchContacts, deleteContact } from '../../redux/contacts-operations';
 import { getFilteredItems, getLoading } from '../../redux/contacts-selectors';
 // Imports of helpers
 import PropTypes from 'prop-types';
+import _ from 'lodash';
 import Loader from 'react-loader-spinner';
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 // Styles imports
@@ -29,20 +30,19 @@ class ContactList extends Component {
 
   render() {
     const { filtered, onDeleteContact, isLoading } = this.props;
+    const loaderConfig = {
+      type: 'TailSpin',
+      color: '#80cbc4',
+      height: 50,
+      width: 50,
+      className: styles.loader,
+    };
 
     return (
       <>
-        {isLoading && (
-          <Loader
-            type="TailSpin"
-            color="#80cbc4"
-            height={50}
-            width={50}
-            className={styles.loader}
-          />
-        )}
+        {isLoading && <Loader {...loaderConfig} />}
         <ul className={styles.contacts}>
-          {filtered.length ? (
+          {!_.isEmpty(filtered) &&
             filtered.map(contact => (
               <li key={contact.id} className={styles.item}>
                 <div>
@@ -59,11 +59,11 @@ class ContactList extends Component {
                   Delete
                 </button>
               </li>
-            ))
-          ) : (
-            <li className={styles.notification}>No contact found.</li>
-          )}
+            ))}
         </ul>
+        {_.isEmpty(filtered) && !isLoading && (
+          <p className={styles.notification}>No contact found.</p>
+        )}
       </>
     );
   }
