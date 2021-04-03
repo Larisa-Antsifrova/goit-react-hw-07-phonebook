@@ -41,9 +41,10 @@ class ContactList extends Component {
     return (
       <>
         {isLoading && <Loader {...loaderConfig} />}
-        <ul className={styles.contacts}>
-          {!_.isEmpty(filtered) &&
-            filtered.map(contact => (
+
+        {!_.isEmpty(filtered) && (
+          <ul className={styles.contacts}>
+            {filtered.map(contact => (
               <li key={contact.id} className={styles.item}>
                 <div>
                   <p>{contact.name}:</p>
@@ -60,7 +61,9 @@ class ContactList extends Component {
                 </button>
               </li>
             ))}
-        </ul>
+          </ul>
+        )}
+
         {_.isEmpty(filtered) && !isLoading && (
           <p className={styles.notification}>No contact found.</p>
         )}
