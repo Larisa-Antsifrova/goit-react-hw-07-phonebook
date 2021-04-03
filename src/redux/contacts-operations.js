@@ -1,7 +1,8 @@
+// Imports of actions
 import {
-  fetchContactRequest,
-  fetchContactSuccess,
-  fetchContactError,
+  fetchContactsRequest,
+  fetchContactsSuccess,
+  fetchContactsError,
   addContactRequest,
   addContactSuccess,
   addContactError,
@@ -9,16 +10,16 @@ import {
   deleteContactSuccess,
   deleteContactError,
 } from './contacts-actions';
-
+// Imports of libraries
 import axios from 'axios';
 axios.defaults.baseURL = 'http://localhost:4040';
 
 const fetchContacts = () => dispatch => {
-  dispatch(fetchContactRequest());
+  dispatch(fetchContactsRequest());
   axios
     .get('/contacts')
-    .then(({ data }) => dispatch(fetchContactSuccess(data)))
-    .catch(error => dispatch(fetchContactError(error)));
+    .then(({ data }) => dispatch(fetchContactsSuccess(data)))
+    .catch(error => dispatch(fetchContactsError(error)));
 };
 
 const addContact = contact => dispatch => {

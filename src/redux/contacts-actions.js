@@ -1,8 +1,9 @@
+// Imports from Redux Toolkit
 import { createAction } from '@reduxjs/toolkit';
 
-const fetchContactRequest = createAction('contacts/fetchContactRequest');
-const fetchContactSuccess = createAction('contacts/fetchContactSuccess');
-const fetchContactError = createAction('contacts/fetchContactError');
+const fetchContactsRequest = createAction('contacts/fetchContactsRequest');
+const fetchContactsSuccess = createAction('contacts/fetchContactsSuccess');
+const fetchContactsError = createAction('contacts/fetchContactsError');
 
 const addContactRequest = createAction('contacts/addContactRequest');
 const addContactSuccess = createAction('contacts/addContactSuccess');
@@ -15,9 +16,9 @@ const deleteContactError = createAction('contacts/deleteContactError');
 const updateFilter = createAction('phonebook/updateFilter');
 
 export {
-  fetchContactRequest,
-  fetchContactSuccess,
-  fetchContactError,
+  fetchContactsRequest,
+  fetchContactsSuccess,
+  fetchContactsError,
   addContactRequest,
   addContactSuccess,
   addContactError,
